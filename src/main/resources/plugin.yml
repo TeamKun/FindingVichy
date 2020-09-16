@@ -1,0 +1,17 @@
+name: FindingVichy
+version: ${project.version}
+main: net.teamfruit.findingvichy.FindingVichy
+api-version: 1.15
+
+commands:
+  vichy:
+    description: ビッキーを探す
+    usage: /vichy
+    permission: vichy
+permissions:
+  vichy:
+    description: Vichy
+    default: op
+  vichy.reload:
+    description: Reload Mapping
+    default: op
