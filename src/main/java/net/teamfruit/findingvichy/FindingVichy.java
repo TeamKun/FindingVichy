@@ -24,6 +24,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public final class FindingVichy extends JavaPlugin implements CommandExecutor {
@@ -107,10 +108,11 @@ public final class FindingVichy extends JavaPlugin implements CommandExecutor {
                 .map(e -> e.name)
                 .collect(Collectors.toList());
 
-        server.broadcastMessage(ChatColor.GREEN + "========= ▼VCだけ入ってマイクラ入らないバカ一覧▼ =========");
+        Consumer<String> chat = "vichytest".equals(command.getName()) ? sender::sendMessage : server::broadcastMessage;
+        chat.accept(ChatColor.GREEN + "========= ▼VCだけ入ってマイクラ入らないバカ一覧▼ =========");
         for (String vichy : vichies)
-            Bukkit.broadcastMessage(ChatColor.DARK_GREEN + vichy);
-        server.broadcastMessage(ChatColor.GREEN + "========= ▲VCだけ入ってマイクラ入らないバカ一覧▲ =========");
+            chat.accept(ChatColor.DARK_GREEN + vichy);
+        chat.accept(ChatColor.GREEN + "========= ▲VCだけ入ってマイクラ入らないバカ一覧▲ =========");
 
         return true;
     }

@@ -8,6 +8,10 @@ commands:
     description: ビッキーを探す
     usage: /vichy
     permission: vichy
+  vichytest:
+    description: ビッキーを探すテスト
+    usage: /vichytest
+    permission: vichy
 permissions:
   vichy:
     description: Vichy
